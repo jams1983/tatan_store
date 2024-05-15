@@ -6,6 +6,8 @@ RSpec.describe 'Products', type: :request do
   describe 'GET #index' do
     subject { get root_path }
 
+    let!(:products) { create_list(:product, 3) }
+
     describe 'authenticated user' do
       let(:user) { create(:user) }
 
@@ -15,12 +17,14 @@ RSpec.describe 'Products', type: :request do
       end
 
       it { expect(response).to render_template :index }
+      it { expect(assigns[:products].size).to eq products.size }
     end
 
     describe 'Unauthenticated user' do
       before { subject }
 
       it { expect(response).to render_template :index }
+      it { expect(assigns[:products].size).to eq products.size }
     end
   end
 end
