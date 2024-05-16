@@ -1,0 +1,51 @@
+<section class="py-5">
+  <div class="container px-4 px-lg-5 mt-5">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-9 mb-4">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <h5>Items</h5>
+            <table class="table">
+              <%= render partial: 'line_items/table_body', locals: { cart: @order.cart } %>
+            </table>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <h5>Order Summary</h5>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>Subtotal(<%= pluralize(@order.cart.line_items_amount, 'Item') %>)</td>
+                  <td class="text-end">$<%= @order.cart.subtotal %></td>
+                </tr>
+                <tr>
+                  <td>Shipping</td>
+                  <td class="text-end">$<%= @order.shipping_total %></td>
+                </tr>
+
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Total:</th>
+                  <th class="text-end">$<%= @order.total %></th>
+                </tr>
+              </tfoot>
+            </table>
+          </li>
+          <li class="list-group-item text-center">
+            <%= form_with model: @order do |f| %>
+              <%= f.hidden_field :shipping_total %>
+              <%= f.hidden_field :total %>
+              <%= f.submit 'Create Order', class: 'btn btn-success mt-auto' %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

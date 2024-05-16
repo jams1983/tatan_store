@@ -1,0 +1,23 @@
+<section class="py-5">
+  <div class="container px-4 px-lg-5 mt-5">
+    <h4>Order Details</h4>
+    <div class="row">
+      <div class="col">
+        Ordered on <%= local_time_ago(@order.created_at) %>
+      </div>
+      <div class="col">
+        Order #<%= @order.created_at.to_i %>
+      </div>
+    </div>
+    <hr>
+    <table class="table">
+      <%= render partial: 'line_items/table_body', locals: { cart: @order.cart } %>
+      <tfoot>
+        <td></td>
+        <td></td>
+        <td>Total (<%= pluralize(@order.cart.line_items_amount, 'item') %>):</td>
+        <th class="text-end">$<%= @order.cart.subtotal%></th>
+      </tfoot>
+    </table>
+  </div>
+</section>

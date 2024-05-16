@@ -27,3 +27,7 @@
 .nav {
   z-index: 9999;
 }
+
+.banner img{
+  width: 100%;
+}

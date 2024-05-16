@@ -11,7 +11,12 @@ class LineItemsController < TatanStoreController
 
   def destroy
     if line_item.destroy
-      redirect_to cart_path, notice: "<strong>#{line_item.product.name}</strong> was removed from cart"
+      flash[:notice] = "<strong>#{line_item.product.name}</strong> was removed from cart"
+      if current_cart.line_items.any?
+        redirect_back fallback_location: cart_path
+      else
+        redirect_to cart_path
+      end
     else
       redirect_to cart_path, alert: "<strong>#{line_item.product.name}</strong> can not be removed from cart"
     end

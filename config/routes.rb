@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resource :cart, only: %i[show destroy]
 
   resources :line_items, only: %i[create destroy]
-  resources :orders, except: %i[update]
+  resources :orders, except: %i[edit update]
 
   # Defines the root path route ("/")
   # root "posts#index"

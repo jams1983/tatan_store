@@ -1,21 +1,23 @@
-<h3>Cart</h3>
-<hr>
-<% if current_cart.line_items.any? %>
-  <table class="table">
-    <tbody>
-      <%= render current_cart.line_items %>
-    </tbody>
-    <tfoot>
-      <td></td>
-      <td></td>
-      <td>Total (<%= pluralize(current_cart.line_items_amount, 'item') %>):</td>
-      <th class="text-end">$<%= current_cart.subtotal%></th>
-    </tfoot>
-  </table>
+<section class="py-5">
+  <div class="container px-4 px-lg-5 mt-5">
+    <h3>Cart</h3>
+    <hr>
+    <% if current_cart.line_items.any? %>
+      <table class="table">
+        <%= render partial: 'line_items/table_body', locals: { cart: current_cart } %>
+        <tfoot>
+          <td></td>
+          <td></td>
+          <td>Total (<%= pluralize(current_cart.line_items_amount, 'item') %>):</td>
+          <th class="text-end">$<%= current_cart.subtotal%></th>
+        </tfoot>
+      </table>
 
-  <div class="d-flex flex-row-reverse align-items-center justify-content-between">
-    <%= link_to 'Checkout', new_order_path, class: 'btn btn-outline-dark mt-auto' %>
+      <div class="d-flex flex-row-reverse align-items-center justify-content-between">
+        <%= link_to 'Checkout', new_order_path, class: 'btn btn-success mt-auto' %>
+      </div>
+    <% else %>
+      <p>No items to show</p>
+    <% end %>
   </div>
-<% else %>
-  <p>No items to show</p>
-<% end %>
+</section>

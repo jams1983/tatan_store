@@ -1,0 +1,8 @@
+<tr>
+  <td><%= order.created_at.to_i %></td>
+  <td><%= local_time_ago(order.created_at) %></td>
+  <td>$<%= order.total %></td>
+  <td>
+    <%= link_to 'View order details ', order_path(order), class: 'text-decoration-none' %>
+  </td>
+</tr>

@@ -7,4 +7,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable
 
   has_many :carts, dependent: :destroy
+  has_many :orders, through: :carts
 end
