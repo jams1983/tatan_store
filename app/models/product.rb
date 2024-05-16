@@ -8,6 +8,8 @@ class Product < ApplicationRecord
 
   has_one_attached :image
 
+  has_many :line_items, dependent: :destroy
+
   def self.ransackable_attributes(_auth_object = nil)
     %w[created_at name]
   end

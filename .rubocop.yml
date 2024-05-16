@@ -5,7 +5,7 @@ require:
   - rubocop-factory_bot
 
 AllCops:
-  TargetRubyVersion: 2.6
+  TargetRubyVersion: 3.2
   Exclude:
     - 'templates/**/*'
     - 'vendor/**/*'
@@ -33,11 +33,18 @@ Lint/UselessAssignment:
   Exclude:
     - 'spec/**/*'
 
+Lint/MissingSuper:
+  Exclude:
+    - 'app/services/**/*'
+
 Layout/IndentationConsistency:
   EnforcedStyle: normal
 
 Layout/EmptyLinesAroundAccessModifier:
   EnforcedStyle: around
+
+Metrics/BlockLength:
+  AllowedMethods: ['describe', 'context']
 
 Gemspec/DeprecatedAttributeAssignment:
   Enabled: true

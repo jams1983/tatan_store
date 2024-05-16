@@ -46,6 +46,7 @@ gem 'bootsnap', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem 'image_processing', '~> 1.2'
 
+gem 'aasm'
 gem 'activeadmin'
 gem 'devise', '~> 4.9'
 gem 'local_time'

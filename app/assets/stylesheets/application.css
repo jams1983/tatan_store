@@ -14,3 +14,16 @@
  *= require_self
  *= require styles
  */
+
+
+.alert {
+  position: absolute!important;
+  top: 70px;
+  left: 100px;
+  right: 100px;
+  z-index: 9998;
+}
+
+.nav {
+  z-index: 9999;
+}
