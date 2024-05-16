@@ -29,7 +29,3 @@
 
 en:
   hello: "Hello world"
-  messages:
-    line_items:
-      create_success: Product added to cart succesfully
-      create_failed: Product can not be added to cart

@@ -1,0 +1,13 @@
+<tr>
+  <td>
+    <img class="" src="<%= line_item.product.image_url %>" height='80' alt="..." />
+  </td>
+  <td>
+    <div><%= line_item.product.name %></div>
+    <div>
+      <%= link_to 'Delete', line_item_path(line_item), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'text-danger text-decoration-none' %>
+    </div>
+  </td>
+  <td><%= line_item.amount %></td>
+  <td class="text-end">$ <%= line_item.product.price %></td>
+</tr>

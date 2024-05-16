@@ -18,6 +18,7 @@ RSpec.describe 'Products', type: :request do
 
       it { expect(response).to render_template :index }
       it { expect(assigns[:products].size).to eq products.size }
+      it { expect(assigns[:current_cart]).to be_nil }
     end
 
     describe 'Unauthenticated user' do

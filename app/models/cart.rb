@@ -19,4 +19,8 @@ class Cart < ApplicationRecord
   def line_items_amount
     line_items.sum(:amount)
   end
+
+  def subtotal
+    line_items.sum { |line_item| line_item.product.price * line_item.amount }
+  end
 end
