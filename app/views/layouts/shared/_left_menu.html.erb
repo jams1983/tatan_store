@@ -2,7 +2,9 @@
   <li class="nav-item">
     <%= link_to 'Products', root_path, class: "nav-link #{'active' if controller_name == 'products'}" %>
   </li>
-  <li class="nav-item">
-    <%= link_to 'Orders', orders_path, class: "nav-link #{'active' if controller_name == 'orders'}" %>
-  </li>
+  <% if user_signed_in? %>
+    <li class="nav-item">
+      <%= link_to 'Orders', orders_path, class: "nav-link #{'active' if controller_name == 'orders'}" %>
+    </li>
+  <% end %>
 </ul>

@@ -65,6 +65,7 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem 'dotenv'
   gem 'letter_opener'
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false

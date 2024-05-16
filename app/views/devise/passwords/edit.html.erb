@@ -1,27 +1,29 @@
-<div class="row justify-content-center">
-  <h2>Change your password</h2>
+<section class="py-5">
+  <div class="container px-4 px-lg-5 mt-5">
+    <h2>Change your password</h2>
 
-  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-    <%= f.hidden_field :reset_password_token %>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= f.hidden_field :reset_password_token %>
 
-    <fieldset class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4 mb-3">
-      <%= f.label :password, class: "form-label" %>
-      <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
-      <% if @minimum_password_length %>
-        <em class="form-text">(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %>
-    </fieldset>
+      <fieldset class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4 mb-3">
+        <%= f.label :password, class: "form-label" %>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+        <% if @minimum_password_length %>
+          <em class="form-text">(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %>
+      </fieldset>
 
-    <fieldset class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4 mb-3">
-      <%= f.label :password_confirmation, class: "form-label" %>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
-    </fieldset>
+      <fieldset class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4 mb-3">
+        <%= f.label :password_confirmation, class: "form-label" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+      </fieldset>
 
-    <div class="actions">
-      <%= f.submit "Change my password", class: "btn btn-outline-primary" %>
-    </div>
-  <% end %>
+      <div class="actions">
+        <%= f.submit "Change my password", class: "btn btn-outline-primary" %>
+      </div>
+    <% end %>
 
-  <%= render "devise/shared/links" %>
-</div>
+    <%= render "devise/shared/links" %>
+  </div>
+</section>
