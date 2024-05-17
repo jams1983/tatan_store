@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :line_items, only: %i[create destroy]
   resources :orders, except: %i[edit update]
+  resources :products, only: %i[index show]
 
   # Defines the root path route ("/")
   # root "posts#index"

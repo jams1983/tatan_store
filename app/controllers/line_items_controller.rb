@@ -3,9 +3,9 @@
 class LineItemsController < TatanStoreController
   def create
     if LineItemCreator.call(current_cart, line_item_params)
-      redirect_to root_path, notice: "<strong>#{product.name}</strong> was added to cart"
+      redirect_back fallback_location: root_path, notice: "<strong>#{product.name}</strong> was added to cart"
     else
-      redirect_to root_path, alert: "<strong>#{product.name}</strong> can not be added to cart"
+      redirect_back fallback_location: root_path, alert: "<strong>#{product.name}</strong> can not be added to cart"
     end
   end
 
@@ -20,7 +20,7 @@ class LineItemsController < TatanStoreController
   private
 
   def line_item_params
-    params.require(:line_item).permit(:product_id)
+    params.require(:line_item).permit(:product_id, :amount)
   end
 
   def line_item

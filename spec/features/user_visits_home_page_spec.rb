@@ -29,7 +29,7 @@ feature 'User visits homapage' do
       expect(page).to have_css('.card')
       expect(page).to have_css('.card img')
       expect(page).to have_css('.card .card-body h5', text: Product.first.name)
-      expect(page).to have_css('.card .card-body span', text: "$#{Product.first.price}")
+      expect(page).to have_css('.card .card-footer span', text: "$#{Product.first.price}")
       expect(page).to have_css('.card .card-footer button', text: 'Add to cart')
     end
 
@@ -45,7 +45,7 @@ feature 'User visits homapage' do
     end
   end
 
-  context 'with unauthenticated user' do
+  context 'with authenticated user' do
     let(:user) { create(:user) }
 
     background { login_as(user, scope: :user) }

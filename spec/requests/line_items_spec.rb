@@ -7,7 +7,7 @@ RSpec.describe 'LineItems', type: :request do
     subject { post line_items_path, params: }
 
     let(:product) { create(:product) }
-    let(:params) { { line_item: { product_id: product.id } } }
+    let(:params) { { line_item: { product_id: product.id, amount: 2 } } }
 
     describe 'authenticated user' do
       let(:user) { create(:user) }

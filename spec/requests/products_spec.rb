@@ -28,4 +28,29 @@ RSpec.describe 'Products', type: :request do
       it { expect(assigns[:products].size).to eq products.size }
     end
   end
+
+  describe 'GET #show' do
+    let!(:product) { create(:product) }
+
+    subject { get product_path(product) }
+
+    describe 'authenticated user' do
+      let(:user) { create(:user) }
+
+      before do
+        login_as(user)
+        subject
+      end
+
+      it { expect(response).to render_template :show }
+      it { expect(assigns[:product]).to eq product}
+    end
+
+    describe 'Unauthenticated user' do
+      before { subject }
+
+      it { expect(response).to render_template :show }
+      it { expect(assigns[:product]).to eq product}
+    end
+  end
 end
