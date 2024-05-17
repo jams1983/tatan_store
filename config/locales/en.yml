@@ -29,3 +29,11 @@
 
 en:
   hello: "Hello world"
+  messages:
+    orders:
+      create:
+        success: Order was created
+        failed: Order can not be created
+      destroy:
+        success: Order was removed
+        failed: Order can not be removed

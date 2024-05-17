@@ -44,7 +44,7 @@ Layout/EmptyLinesAroundAccessModifier:
   EnforcedStyle: around
 
 Metrics/BlockLength:
-  AllowedMethods: ['describe', 'context']
+  AllowedMethods: ['describe', 'context', 'feature']
 
 Gemspec/DeprecatedAttributeAssignment:
   Enabled: true

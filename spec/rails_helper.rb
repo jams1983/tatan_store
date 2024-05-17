@@ -11,6 +11,7 @@ require 'rspec/rails'
 require 'aasm/rspec'
 require 'faker'
 require 'simplecov'
+require 'capybara/rails'
 
 SimpleCov.start
 

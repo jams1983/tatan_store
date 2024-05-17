@@ -72,7 +72,6 @@ RSpec.describe 'LineItems', type: :request do
         it { expect { subject }.to change(LineItem, :count).by(-1) }
 
         describe 'and also' do
-
           context 'when cart is empty' do
             before { subject }
 
@@ -81,9 +80,10 @@ RSpec.describe 'LineItems', type: :request do
           end
 
           context 'when cart is not empty' do
-            let!(:line_item_2) { create(:line_item, cart:) }
-
-            before { subject }
+            before do
+              create(:line_item, cart:)
+              subject
+            end
 
             it { expect(response).to redirect_to cart_path }
             it { expect(flash[:notice]).to eq "<strong>#{line_item.product.name}</strong> was removed from cart" }

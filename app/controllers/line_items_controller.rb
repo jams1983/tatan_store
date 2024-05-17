@@ -11,12 +11,7 @@ class LineItemsController < TatanStoreController
 
   def destroy
     if line_item.destroy
-      flash[:notice] = "<strong>#{line_item.product.name}</strong> was removed from cart"
-      if current_cart.line_items.any?
-        redirect_back fallback_location: cart_path
-      else
-        redirect_to cart_path
-      end
+      destroy_success!
     else
       redirect_to cart_path, alert: "<strong>#{line_item.product.name}</strong> can not be removed from cart"
     end
@@ -34,5 +29,14 @@ class LineItemsController < TatanStoreController
 
   def product
     @product ||= Product.find(line_item_params[:product_id])
+  end
+
+  def destroy_success!
+    flash[:notice] = "<strong>#{line_item.product.name}</strong> was removed from cart"
+    if current_cart.line_items.any?
+      redirect_back fallback_location: cart_path
+    else
+      redirect_to cart_path
+    end
   end
 end

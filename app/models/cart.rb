@@ -25,4 +25,8 @@ class Cart < ApplicationRecord
   def subtotal
     line_items.sum { |line_item| line_item.product.price * line_item.amount }
   end
+
+  def empty?
+    line_items.empty?
+  end
 end

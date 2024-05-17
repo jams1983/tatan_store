@@ -1,8 +1,15 @@
 # frozen_string_literal: true
 
 class OrdersController < TatanStoreController
+  before_action -> { redirect_to cart_path }, only: %i[new create], if: -> { current_cart.empty? }
+  after_action :load_current_cart!, only: :create
+
   def index
     orders
+  end
+
+  def show
+    order
   end
 
   def new
@@ -14,15 +21,21 @@ class OrdersController < TatanStoreController
   def create
     @order = current_cart.build_order(order_params)
     if @order.save
-      redirect_to root_path, notice: 'Order was created'
+      @current_cart = nil
+      redirect_to root_path, notice: I18n.t('messages.orders.create.success')
     else
-      flash[:alert] = 'Order can not be created'
+      flash[:alert] = I18n.t('messages.orders.create.failed')
       render :new, status: :unprocessable_entity
     end
   end
 
-  def show
-    order
+  def destroy
+    if order.destroy
+      flash[:notice] = I18n.t('messages.orders.destroy.success')
+    else
+      flash[:alert] = I18n.t('messages.orders.destroy.failed')
+    end
+    redirect_to orders_path
   end
 
   private

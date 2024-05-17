@@ -1,8 +1,15 @@
 <tr>
   <td><%= order.created_at.to_i %></td>
   <td><%= local_time_ago(order.created_at) %></td>
-  <td>$<%= order.total %></td>
+  <td class="text-end">$<%= order.total %></td>
   <td>
-    <%= link_to 'View order details ', order_path(order), class: 'text-decoration-none' %>
+    <div class="row">
+      <div class="col-6 text-center">
+        <%= link_to 'View order details ', order_path(order), class: 'text-decoration-none' %>
+      </div>
+      <div class="col-6">
+        <%= link_to 'Delete', order_path(order), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'text-decoration-none' %>
+      </div>
+    </div>
   </td>
 </tr>
