@@ -8,8 +8,6 @@
         <div class="text-center">
           <!-- Product name-->
           <h5 class="fw-bolder"><%= product.name %></h5>
-          <!-- Product price-->
-
         </div>
       <% end %>
 
@@ -17,7 +15,8 @@
     <!-- Product actions-->
     <div class="card-footer pt-0 border-top-0 bg-transparent">
       <div class="text-center mb-2">
-        <span class="price">$<%= product.price %></span>
+        <!-- Product price-->
+        <span class="price"><%= number_to_currency(product.price) %></span>
       </div>
       <div class="text-center">
         <%= button_to 'Add to cart', line_items_path, method: :post, params: { line_item: { product_id: product.id, amount: 1 } }, class: 'btn btn-primary mt-auto' %>

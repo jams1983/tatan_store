@@ -4,7 +4,7 @@ class ProductsController < TatanStoreController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @products = Product.all
+    @products = params[:category].present? ? Product.tagged_with(params[:category]) : Product.all
   end
 
   def show

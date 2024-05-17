@@ -21,18 +21,24 @@
               <tbody>
                 <tr>
                   <td>Subtotal(<%= pluralize(@order.cart.line_items_amount, 'Item') %>)</td>
-                  <td class="text-end">$<%= @order.cart.subtotal %></td>
+                  <td class="text-end">
+                    <%= number_to_currency(@order.cart.subtotal) %>
+                  </td>
                 </tr>
                 <tr>
                   <td>Shipping</td>
-                  <td class="text-end">$<%= @order.shipping_total %></td>
+                  <td class="text-end">
+                    <%= number_to_currency(@order.shipping_total) %>
+                  </td>
                 </tr>
 
               </tbody>
               <tfoot>
                 <tr>
                   <th>Total:</th>
-                  <th class="text-end">$<%= @order.total %></th>
+                  <th class="text-end">
+                    <%= number_to_currency(@order.total) %>
+                  </th>
                 </tr>
               </tfoot>
             </table>

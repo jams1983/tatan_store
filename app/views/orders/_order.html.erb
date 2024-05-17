@@ -1,7 +1,7 @@
 <tr>
   <td><%= order.created_at.to_i %></td>
   <td><%= local_time_ago(order.created_at) %></td>
-  <td class="text-end">$<%= order.total %></td>
+  <td class="text-end"><%= number_to_currency(order.total) %></td>
   <td>
     <div class="row">
       <div class="col-6 text-center">

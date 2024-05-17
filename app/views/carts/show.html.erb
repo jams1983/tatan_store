@@ -9,7 +9,7 @@
           <td></td>
           <td></td>
           <td>Total (<%= pluralize(current_cart.line_items_amount, 'item') %>):</td>
-          <th class="text-end">$<%= current_cart.subtotal%></th>
+          <th class="text-end"><%= number_to_currency(current_cart.subtotal)%></th>
         </tfoot>
       </table>
 

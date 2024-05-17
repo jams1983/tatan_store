@@ -2,6 +2,7 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
+
 var minus = document.querySelector(".btn-subtract")
 var add = document.querySelector(".btn-add");
 var quantityNumber = document.querySelector(".item-quantity");

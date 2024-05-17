@@ -10,5 +10,5 @@
 
   </td>
   <td><%= line_item.amount %></td>
-  <td class="text-end">$<%= line_item.product.price %></td>
+  <td class="text-end"><%= number_to_currency(line_item.product.price) %></td>
 </tr>
