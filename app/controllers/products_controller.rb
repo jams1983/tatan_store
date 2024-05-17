@@ -9,5 +9,6 @@ class ProductsController < TatanStoreController
 
   def show
     @product = Product.find(params[:id])
+    @related_products = @product.find_related_categories.limit(8)
   end
 end

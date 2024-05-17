@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Product < ApplicationRecord
+
   include Rails.application.routes.url_helpers
 
   validates :name, :price, presence: true
@@ -9,6 +10,8 @@ class Product < ApplicationRecord
   has_one_attached :image
 
   has_many :line_items, dependent: :destroy
+
+  acts_as_taggable_on :categories
 
   def self.ransackable_attributes(_auth_object = nil)
     %w[created_at name]

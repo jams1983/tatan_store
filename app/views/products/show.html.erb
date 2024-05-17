@@ -12,8 +12,12 @@
           <%= form_with model: LineItem.new, url: line_items_path do |f|%>
             <%= f.hidden_field :product_id, value: @product.id %>
             <div class="row">
-              <div class="col-4">
-                <%= f.number_field :amount, class: 'form-control text-center me-3', value: 1, min: 1 %>
+              <div class="col-5">
+                <div class="input-group mb-3">
+                  <button class="btn btn-primary border-light-subtle btn-subtract" type="button" id="button-addon1">-</button>
+                  <%= f.number_field :amount, class: 'form-control text-center item-quantity', value: 1, min: 1 %>
+                  <button class="btn btn-primary border-light-subtle btn-add" type="button" id="button-addon2">+</button>
+                </div>
               </div>
               <div class="col">
                 <%= f.button class: 'btn btn-primary flex-shrink-0', type: 'submit' do %>
@@ -25,6 +29,16 @@
           <% end %>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+
+  <div class="container px-4 px-lg-5 mt-5">
+    <h2 class="fw-bolder mb-4">Related products</h2>
+    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+      <%= render @related_products %>
     </div>
   </div>
 </section>
