@@ -15,6 +15,9 @@
           <%= render @orders %>
         </tbody>
       </table>
+
+      <%= paginate @orders %>
+
     <% else %>
       <p>No orders to show</p>
     <% end %>

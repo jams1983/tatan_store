@@ -5,7 +5,7 @@ class OrdersController < TatanStoreController
   after_action :load_current_cart!, only: :create
 
   def index
-    orders
+    @orders = orders.page(params[:page])
   end
 
   def show
