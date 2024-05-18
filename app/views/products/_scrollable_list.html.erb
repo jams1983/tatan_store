@@ -1,0 +1,7 @@
+<%= render @products %>
+<%= render partial: "next_page" unless @products.last_page? %>
+
+<script type="text/javascript">
+  var el = document.getElementById('products-page-<%= @products.current_page %>');
+  el.classList.add('d-none');
+</script>

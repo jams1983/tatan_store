@@ -1,0 +1,11 @@
+
+<%= turbo_frame_tag(
+      "products-page-#{@products.next_page}",
+      # autoscroll: true,
+      loading: :lazy,
+      src: path_to_next_page(@products, format: :turbo_stream),
+      target: "_top",
+      class: 'products-turbo-frame'
+    ) do %>
+
+<% end %>
