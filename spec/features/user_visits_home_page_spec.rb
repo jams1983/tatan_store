@@ -29,7 +29,7 @@ feature 'User visits homapage' do
       expect(page).to have_css('.card')
       expect(page).to have_css('.card img')
       expect(page).to have_css('.card .card-body h5', text: Product.first.name)
-      expect(page).to have_css('.card .card-footer span', text: "$#{Product.first.price}")
+      expect(page).to have_css('.card .card-footer span', text: number_to_currency(Product.first.price))
       expect(page).to have_css('.card .card-footer button', text: 'Add to cart')
     end
 

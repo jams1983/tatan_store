@@ -32,9 +32,9 @@ feature 'User visits orders page' do
       expect(page).to have_selector('h3', text: 'Order Details')
       expect(page).to have_selector('div', text: "Order ##{order.created_at.to_i}")
       expect(page).to have_selector('tfoot td', text: "Subtotal (#{order.cart.line_items_amount}")
-      expect(page).to have_selector('tfoot td', text: "$#{order.cart.subtotal}")
-      expect(page).to have_selector('tfoot td', text: "$#{order.shipping_total}")
-      expect(page).to have_selector('tfoot th', text: "$#{order.total}")
+      expect(page).to have_selector('tfoot td', text: number_to_currency(order.cart.subtotal))
+      expect(page).to have_selector('tfoot td', text: number_to_currency(order.shipping_total))
+      expect(page).to have_selector('tfoot th', text: number_to_currency(order.total))
     end
 
     scenario 'and clicks on delete link' do

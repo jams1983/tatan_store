@@ -65,7 +65,7 @@ feature 'User visits create order page' do
       expect(page).to have_css('.card')
       expect(page).to have_css('.card img')
       expect(page).to have_css('.card .card-body h5', text: line_item.product.name)
-      expect(page).to have_css('.card .card-footer span', text: "$#{line_item.product.price}")
+      expect(page).to have_css('.card .card-footer span', text: number_to_currency(line_item.product.price))
       expect(page).to have_css('.card .card-footer button', text: 'Add to cart')
       expect(page).to have_css('.nav-item a span.badge', text: 0)
     end
