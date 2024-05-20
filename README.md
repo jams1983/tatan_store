@@ -1,24 +1,47 @@
-# README
+# Tatan Store
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+is a Store app created with Ruby on Rails and Postgres database
 
-Things you may want to cover:
+## Ruby version
 
-* Ruby version
+3.2.0
 
-* System dependencies
+## Setup
+```terminal
+cd ./tatan_store
+bundle install
+cp .env.example .env
+```
+And add your environment variables
 
-* Configuration
+## Database creation
+run:
+```terminal
+rails db:create
+rails db:migrate
+rails db:seed
+```
+To create mock products run from Rails terminal:
+```
+FactoryBot.create_list(:product, 100)
+```
+## How to run the app
+```terminal
+rails s
+```
 
-* Database creation
+## How to run the test suite
+```terminal
+rspec spec
+```
 
-* Database initialization
+## Deployment instructions
+These instructions are to be defined
 
-* How to run the test suite
+## Contributing
 
-* Services (job queues, cache servers, search engines, etc.)
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
 
-* Deployment instructions
+Please make sure to update tests as appropriate.
 
-* ...
